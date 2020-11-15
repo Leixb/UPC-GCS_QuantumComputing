@@ -21,4 +21,72 @@
 \section{Introduction}%
 \label{sec:introduction}
 
+\section{Elliptic Curve Cryptography (ECC)}
+
+ECC is a form of public key cryptography (or asymmetric) based on the complexity
+of computing discrete logarithms in elliptic curve groups. (Elliptic Curve
+Discrete Logarithm Problem).
+
+Although elliptic curves have been studied since the work of Diophantus in the
+second century A.D., its use in cryptography was not discovered until 1984.
+Victor Miller and Neal Koblitz proposed two different methods to apply elliptic
+curves to cryptography.
+
+The main attractiveness of ECC is that unlike with RSA, there are no known
+sub-exponential time algorithms to solve ECDLP for properly chosen elliptic
+curves. This makes it possible to have similar security with smaller parameters.
+Moreover the computations needed to encrypt and decrypt are faster.
+
+For instance, if we consider a standard 256bit ECDSA, the computing power needed
+to crack with known algorithms is equivalent to a 3072 bit RSA.
+
+Nowadays, ECC is used all around the internet from TLS, SSH, Bitcoin, national
+ID cards, the Tor anonymity network, and WhatsApp among others. Along with RSA,
+ECC has become one of the cornerstones of the internet as we know it today.
+
+\subsection{Quantum}
+
+Despite the fact that with the know traditional algorithms, ECC is far superior
+to RSA in terms of security, against the threat of quantum computing it is
+equally vulnerable.
+
+Shor published 2 algorithms in his famous paper: "Polynomial-Time Algorithms for
+Prime Factorization and Discrete Logarithms on a Quantum Computer". Which can be
+used to crack RSA and ECC in polynomial time. However, the cost of those
+algorithms differ vastly.
+
+As shown by Roetteler et al. (2017), ECC 256 requires $10^{11}$  toffoli gates
+whereas RSA 3072 requires $10^{13}$. RSA provides greater security than ECC
+using Shor's algorithms. However, there are improvements and optimizations that
+can be applied to Shor's original prime factorization algorithm which reduce the
+order of RSA by 100, making it comparable to ECC.
+
+With current technology we are still very far away from being able to build a
+quantum computer with sufficient qubits to crack either RSA or ECC, but progress
+is being made rapidly, not only hardware wise but also on algorithms and
+techniques (we went from needing 1 billion qubits to 20 million in the space of 7 years).
+
+Some experts theorize that quantum cracking of RSA and ECC may be a real threat
+as early as 2030.
+
+
+\section{Multivariate Public Key Cryptography (MVPKC)}
+
+Multi variate public key cryptography is a method of public key cryptography
+based on the NP-hardness of solving nonlinear equations over a finite field.
+The fundamental principle of the method is rooted on algebraic geometry, a field
+of mathematics that developed in the 20th century (and not numerical algebra or
+eliptic curves). There are no known quantum algorithms that can break MVPKC
+which makes it one of the candidates for post quantum cryptography methods.
+
+We will not enter into details of how MVPKC is implemented.  There are various
+forms of MVPKC which differ on how the trapdoor one way function is defined.
+
+One of the main benefits of MVPKC over lattice and other post quantum
+cryptography methods is that it takes less computing resources although the keys
+are considerably larger (reaching Kbs in size). This makes it unsuitable for
+really small integrated devices with low memory.
+
+
+
 \end{document}
