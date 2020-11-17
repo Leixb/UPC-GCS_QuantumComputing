@@ -1,0 +1,56 @@
+
+@article{rivest_method_1978,
+	title = {A method for obtaining digital signatures and public-key cryptosystems},
+	volume = {21},
+	issn = {0001-0782},
+	url = {https://doi.org/10.1145/359340.359342},
+	doi = {10.1145/359340.359342},
+	abstract = {An encryption method is presented with the novel property that publicly revealing an encryption key does not thereby reveal the corresponding decryption key. This has two important consequences: (1) Couriers or other secure means are not needed to transmit keys, since a message can be enciphered using an encryption key publicly revealed by the intented recipient. Only he can decipher the message, since only he knows the corresponding decryption key. (2) A message can be “signed” using a privately held decryption key. Anyone can verify this signature using the corresponding publicly revealed encryption key. Signatures cannot be forged, and a signer cannot later deny the validity of his signature. This has obvious applications in “electronic mail” and “electronic funds transfer” systems. A message is encrypted by representing it as a number M, raising M to a publicly specified power e, and then taking the remainder when the result is divided by the publicly specified product, n, of two large secret primer numbers p and q. Decryption is similar; only a different, secret, power d is used, where e * d ≡ 1(mod (p - 1) * (q - 1)). The security of the system rests in part on the difficulty of factoring the published divisor, n.},
+	pages = {120--126},
+	number = {2},
+	journaltitle = {Communications of the {ACM}},
+	shortjournal = {Commun. {ACM}},
+	author = {Rivest, R. L. and Shamir, A. and Adleman, L.},
+	urldate = {2020-11-17},
+	date = {1978-02-01},
+	keywords = {authentication, cryptography, digital signatures, electronic funds transfer, electronic mail, factorization, message-passing, prime number, privacy, public-key cryptosystems, security},
+	file = {Full Text:/home/leix/Zotero/storage/Y9HM4IA9/Rivest et al. - 1978 - A method for obtaining digital signatures and publ.pdf:application/pdf}
+}
+
+@article{kelly_rsa_2009,
+	title = {The {RSA} Algorithm: A Mathematical History of the Ubiquitous Cryptological Algorithm},
+	abstract = {The {RSA} algorithm, developed in 1977 by Rivest, Shamir, and Adlemen, is an algorithm for publickey cryptography. In public-key cryptography, users reveal a public encryption key so that other users in the system are able to send private messages to them, but each user has their own private decryption key. The key to ensuring privacy in a public-key cryptosystem is for it to be extremely diﬃcult to derive the decryption key from the publicly available encryption key. The algorithm works by exploiting concepts from number theory, including Fermat’s Little Theorem. In this paper, we explore the {RSA} algorithm, its deﬁnition, the underlying mathematics, and a number of attacks against the algorithm. Two vulnerabilities of the algorithm used with low public exponent are presented in detail. The paper concludes with an explanation of what the {RSA} algorithm will need to maintain security as technology continues to advance.},
+	pages = {14},
+	author = {Kelly, Maria D},
+	date = {2009},
+	langid = {english},
+	file = {Kelly - The RSA Algorithm A Mathematical History of the U.pdf:/home/leix/Zotero/storage/SIC5LBIQ/Kelly - The RSA Algorithm A Mathematical History of the U.pdf:application/pdf}
+}
+
+@online{andreas_baumhof_breaking_2019,
+	title = {Breaking {RSA} Encryption – an Update on the State-of-the-Art},
+	url = {https://www.quintessencelabs.com/blog/breaking-rsa-encryption-update-state-art/#:~:text=It%20would%20take%20a%20classical,RSA%2D2048%20bit%20encryption%20key},
+	abstract = {You've heard me rambling about Quantum Computers and the impact they will have on cryptography. Probably the biggest and most well-known impact is that they wil},
+	titleaddon = {{QuintessenceLabs}},
+	author = {Andreas Baumhof},
+	urldate = {2020-11-17},
+	date = {2019-06-13},
+	langid = {american},
+	note = {Section: Encryption},
+	file = {Snapshot:/home/leix/Zotero/storage/KLFS5LIG/breaking-rsa-encryption-update-state-art.html:text/html}
+}
+
+@article{gidney_how_2019,
+	title = {How to factor 2048 bit {RSA} integers in 8 hours using 20 million noisy qubits},
+	url = {http://arxiv.org/abs/1905.09749},
+	abstract = {We significantly reduce the cost of factoring integers and computing discrete logarithms in finite fields on a quantum computer by combining techniques from Shor 1994, Griffiths-Niu 1996, Zalka 2006, Fowler 2012, Eker\{{\textbackslash}aa\}-H\{{\textbackslash}aa\}stad 2017, Eker\{{\textbackslash}aa\} 2017, Eker\{{\textbackslash}aa\} 2018, Gidney-Fowler 2019, Gidney 2019. We estimate the approximate cost of our construction using plausible physical assumptions for large-scale superconducting qubit platforms: a planar grid of qubits with nearest-neighbor connectivity, a characteristic physical gate error rate of \$10{\textasciicircum}\{-3\}\$, a surface code cycle time of 1 microsecond, and a reaction time of 10 microseconds. We account for factors that are normally ignored such as noise, the need to make repeated attempts, and the spacetime layout of the computation. When factoring 2048 bit {RSA} integers, our construction's spacetime volume is a hundredfold less than comparable estimates from earlier works (Fowler et al. 2012, Gheorghiu et al. 2019). In the abstract circuit model (which ignores overheads from distillation, routing, and error correction) our construction uses \$3 n + 0.002 n {\textbackslash}lg n\$ logical qubits, \$0.3 n{\textasciicircum}3 + 0.0005 n{\textasciicircum}3 {\textbackslash}lg n\$ Toffolis, and \$500 n{\textasciicircum}2 + n{\textasciicircum}2 {\textbackslash}lg n\$ measurement depth to factor \$n\$-bit {RSA} integers. We quantify the cryptographic implications of our work, both for {RSA} and for schemes based on the {DLP} in finite fields.},
+	journaltitle = {{arXiv}:1905.09749 [quant-ph]},
+	author = {Gidney, Craig and Ekerå, Martin},
+	urldate = {2020-11-17},
+	date = {2019-12-05},
+	eprinttype = {arxiv},
+	eprint = {1905.09749},
+	keywords = {Quantum Physics},
+	annotation = {Comment: 26 pages, 10 figures, 5 tables},
+	file = {arXiv Fulltext PDF:/home/leix/Zotero/storage/4EFBPJ69/Gidney and Ekerå - 2019 - How to factor 2048 bit RSA integers in 8 hours usi.pdf:application/pdf;arXiv.org Snapshot:/home/leix/Zotero/storage/BTJ7S3VX/1905.html:text/html}
+}
