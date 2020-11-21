@@ -5,6 +5,7 @@
 \addbibresource{biblio_aleix.bib}
 \addbibresource{biblio_victor.bib}
 \addbibresource{biblio_albert.bib}
+\addbibresource{biblio_javier.bib}
 
 \title{
     GCS - Quantum Encryption Report
@@ -142,7 +143,7 @@ Today we don’t have a quantum computer with that many qubits or with
 that quality of qubits for that matter. The largest quantum computer to
 date is Google’s Bristlecone with 72 qubits and a 0.6\% error rate.
 Furthermore, the largest number that has been factored by a quantum
-computer is 35, a 6 digit number, very far off 2048 bits.
+computer is 35, a 6 bit number, very far off 2048 bits.
 
 Nonetheless, last year two researchers published a paper in which they
 explained how to factor a 2048 bit RSA key in 8 hours using 20 million
@@ -526,9 +527,9 @@ To encrypt we simple evaluate the polynomials:
 
 To decrypt the data we have to know the inverse of $\mathcal{T}, \mathcal{Q}, \mathcal{S}$:
 \begin{align*}
-    y &= T^{−1}(z) \\
-    x &= Q^{−1}(y) \\
-    w &= S^{−1}(x)
+    y &= \mathcal{T}^{−1}(z) \\
+    x &= \mathcal{Q}^{−1}(y) \\
+    w &= \mathcal{S}^{−1}(x)
 \end{align*}
 
 One of the main benefits of MVPKC over lattice and other post quantum
