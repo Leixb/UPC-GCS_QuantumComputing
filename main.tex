@@ -132,28 +132,28 @@ As mentioned before, RSA exploits the fact that while factoring large,
 semiprime integers is technically possible, with today’s computational
 power it would take an extremely long time, as the algorithms are
 sub-exponential. As a matter of fact, it would take around 300 trillion
-years to break a 2048 bit RSA encryption key 
+years to break a 2048 bit RSA encryption key
 \cite{andreas_baumhof_breaking_2019}. However, Peter Shor found
 in 1994 that using quantum computers semiprime numbers can be factored
 in polynomial time. Using Shor’s algorithm with 4099 perfectly stable
-qubits, 2048-RSA would be broken in just 10 seconds. 
+qubits, 2048-RSA would be broken in just 10 seconds.
 
 Today we don’t have a quantum computer with that many qubits or with
 that quality of qubits for that matter. The largest quantum computer to
-date is Google’s Bristlecone with 72 qubits and a 0.6\% error rate. 
-Furthermore, the largest number that has been factored by a quantum 
+date is Google’s Bristlecone with 72 qubits and a 0.6\% error rate.
+Furthermore, the largest number that has been factored by a quantum
 computer is 35, a 6 digit number, very far off 2048 bits.
 
-Nonetheless, last year two researchers published a paper in which they 
-explained how to factor a 2048 bit RSA key in 8 hours using 20 million 
-noisy qubits \cite{gidney_how_2019}. While 20 million qubits are many 
-more than what is 
-available today, for the first time a system that doesn’t use perfect 
-qubits has been devised. Although there isn’t an imminent threat to RSA 
-encryption, it isn’t a perfect algorithm and the supposition that very 
-large, semiprime numbers can’t be factored in practice will be false in 
-the coming decades. Thus, in a post-quantum world RSA will be 
-broken, however large the key becomes, and therefore will no longer be 
+Nonetheless, last year two researchers published a paper in which they
+explained how to factor a 2048 bit RSA key in 8 hours using 20 million
+noisy qubits \cite{gidney_how_2019}. While 20 million qubits are many
+more than what is
+available today, for the first time a system that doesn’t use perfect
+qubits has been devised. Although there isn’t an imminent threat to RSA
+encryption, it isn’t a perfect algorithm and the supposition that very
+large, semiprime numbers can’t be factored in practice will be false in
+the coming decades. Thus, in a post-quantum world RSA will be
+broken, however large the key becomes, and therefore will no longer be
 secure.
 
 
@@ -364,7 +364,7 @@ a single qubit.
 
 While the evident usage of cryptographic algorithms is the encryption of data, an important part of the
 digital world also relies on signatures, most of which are backed by cryptographic signing relying on
-algorithms such as RSA, which, as it has been previously have analyzed, can be easily broken in a scenario 
+algorithms such as RSA, which, as it has been previously have analyzed, can be easily broken in a scenario
 where powerful-enough quantum are available.
 
 Thus, it is needed to ensure that the signatures made can still be trusted even if classical asymmetric
@@ -540,23 +540,23 @@ small integrated devices with low memory.
 \section{Current state of quantum cryptography}
 
 Quantum Key Distribution (QKD) has been proven to be an incorruptible system
-for distributing encryption keys in perfect secrecy.  It's security is 
+for distributing encryption keys in perfect secrecy.  It's security is
 based on the foundations of quantum mechanics, as opposed to classical public
 key distribution, which relies on the computational struggles of current
-machines to solve the one-way trapdoor functions used. The first is 
+machines to solve the one-way trapdoor functions used. The first is
 theoretically proven to be unbreakable, while the second will become redundant
 with the advent of capable quantum computers.
 Because of this, there are many research groups, public and private,
-working on implementations of QKD networks so that one day it can be used 
-at a large scale. These include DARPA, SwissQuantum, EU's SECOQC, Los Alamos 
+working on implementations of QKD networks so that one day it can be used
+at a large scale. These include DARPA, SwissQuantum, EU's SECOQC, Los Alamos
 National Laboratory or China's QUESS.
 
 In February of this year, a new record for QKD over optical fiber was established at 509 kilometers and with a secure key-rate seven times higher
 than that of similar QKD systems \cite{qkd_509_km_2019}.
 
 In parallel, there are already companies offering comercial QKD systems:
-ID Quanitque (Switzerland), MagiQ Technologies (USA), QuintessenceLabs 
-(Australia), SeQureNet (France) and Toshiba (Japan). However, this systems are 
+ID Quanitque (Switzerland), MagiQ Technologies (USA), QuintessenceLabs
+(Australia), SeQureNet (France) and Toshiba (Japan). However, this systems are
 complex and only used by large companies and government agencies.
 
 Nonetheless, QKD is only half of the cryptography equation, as it only helps
@@ -666,7 +666,27 @@ quantum resistant by simply doubling the key size.
 }
 
 \explainedcite{qkd_509_km_2019} {
-    
+
+}
+
+% JAVI
+
+\explainedcite{wolchover_how_nodate}{
+}
+
+\explainedcite{noauthor_novel_nodate}{
+}
+
+\explainedcite{matthew_dozer_introduction_2017}{
+}
+
+\explainedcite{wickr_what_2020}{
+}
+
+\explainedcite{noauthor_lattice-based_2020}{
+}
+
+\explainedcite{noauthor_ntruencrypt_2020}{
 }
 
 
