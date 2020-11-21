@@ -1,0 +1,259 @@
+
+@online{wolchover_how_nodate,
+	title = {How Space and Time Could Be a Quantum Error-Correcting Code},
+	url = {https://www.quantamagazine.org/how-space-and-time-could-be-a-quantum-error-correcting-code-20190103/},
+	abstract = {The same codes needed to thwart errors in quantum computers may also give the fabric of space-time its intrinsic robustness.},
+	titleaddon = {Quanta Magazine},
+	author = {Wolchover, Natalie},
+	urldate = {2020-11-21},
+	langid = {english},
+	file = {Snapshot:/home/leix/Zotero/storage/NX8NYNKP/how-space-and-time-could-be-a-quantum-error-correcting-code-20190103.html:text/html}
+}
+
+@online{noauthor_novel_nodate,
+	title = {Novel Error Correction Code Opens a New Approach to Universal Quantum Computing - {IEEE} Spectrum},
+	url = {https://spectrum.ieee.org/tech-talk/computing/software/novel-error-correction-code-opens-a-new-approach-to-universal-quantum-computing},
+	titleaddon = {{IEEE} Spectrum: Technology, Engineering, and Science News},
+	urldate = {2020-11-21},
+	langid = {english},
+	file = {Snapshot:/home/leix/Zotero/storage/6I9M6NBK/novel-error-correction-code-opens-a-new-approach-to-universal-quantum-computing.html:text/html}
+}
+
+@video{matthew_dozer_introduction_2017,
+	title = {Introduction to Lattice Based Cryptography},
+	url = {https://www.youtube.com/watch?v=37Ri1jpl5p8},
+	abstract = {This short video introduces the concept of a lattice, why they are being considered as the basis for the next generation of public key cryptography, and a short walkthrough of a specific encryption algorithm. For a very thorough paper designed to be readable for undergraduates I highly recommend https://eprint.iacr.org/2015/938.pdf.
+
+*One technical note: At 1:30 I claim that lattices are composed only of integers. This is not true. Some lattices only contain integers, but in general, any rational number will do.},
+	author = {{Matthew Dozer}},
+	urldate = {2020-11-21},
+	date = {2017-04-20}
+}
+
+@online{wickr_what_2020,
+	title = {What is Lattice-Based Cryptography \& Why You Should Care},
+	url = {https://medium.com/cryptoblog/what-is-lattice-based-cryptography-why-should-you-care-dbf9957ab717},
+	abstract = {Or how do we protect today’s encrypted information against tomorrow’s quantum attacks?},
+	titleaddon = {Medium},
+	author = {Wickr},
+	urldate = {2020-11-21},
+	date = {2020-08-15},
+	langid = {english},
+	file = {Snapshot:/home/leix/Zotero/storage/CMS8Z8TV/what-is-lattice-based-cryptography-why-should-you-care-dbf9957ab717.html:text/html}
+}
+
+@inreference{noauthor_lattice-based_2020,
+	title = {Lattice-based cryptography},
+	rights = {Creative Commons Attribution-{ShareAlike} License},
+	url = {https://en.wikipedia.org/w/index.php?title=Lattice-based_cryptography&oldid=985807857},
+	abstract = {Lattice-based cryptography is the generic term for constructions of cryptographic primitives that involve lattices, either in the construction itself or in the security proof. Lattice-based constructions are currently important candidates for post-quantum cryptography.  Unlike more widely used and known public-key schemes such as the {RSA}, Diffie-Hellman or elliptic-curve cryptosystems, which could, theoretically, be easily attacked by a quantum computer, some lattice-based constructions appear to be resistant to attack by both classical and quantum computers. Furthermore, many lattice-based constructions are considered to be secure under the assumption that certain well-studied computational lattice problems cannot be solved efficiently.},
+	booktitle = {Wikipedia},
+	urldate = {2020-11-21},
+	date = {2020-10-28},
+	langid = {english},
+	note = {Page Version {ID}: 985807857},
+	file = {Snapshot:/home/leix/Zotero/storage/HBF2XL5N/index.html:text/html}
+}
+
+@inreference{noauthor_ntruencrypt_2020,
+	title = {{NTRUEncrypt}},
+	rights = {Creative Commons Attribution-{ShareAlike} License},
+	url = {https://en.wikipedia.org/w/index.php?title=NTRUEncrypt&oldid=989287965},
+	abstract = {The {NTRUEncrypt} public key cryptosystem, also known as the {NTRU} encryption algorithm, is a lattice-based alternative to {RSA} and {ECC} and is based on the shortest vector problem in a lattice (which is not known to be breakable using quantum computers).
+It relies on the presumed difficulty of factoring certain polynomials in a truncated polynomial ring into a quotient of two polynomials having very small coefficients.  Breaking the cryptosystem is strongly related, though not equivalent, to the algorithmic problem of lattice reduction in certain lattices. Careful choice of parameters is necessary to thwart some published attacks.
+Since both encryption and decryption use only simple polynomial multiplication, these operations are very fast compared to other asymmetric encryption schemes, such as {RSA}, {ElGamal} and elliptic curve cryptography. However, {NTRUEncrypt} has not yet undergone a comparable amount of cryptographic analysis in deployed form.
+A related algorithm is the {NTRUSign} digital signature algorithm.
+Specifically, {NTRU} operations are based on objects in a truncated polynomial ring 
+  
+    
+      
+         
+        R
+        =
+        
+          Z
+        
+        [
+        X
+        ]
+        
+          /
+        
+        (
+        
+          X
+          
+            N
+          
+        
+        −
+        1
+        )
+      
+    
+    \{{\textbackslash}displaystyle {\textbackslash} R={\textbackslash}mathbb \{Z\} [X]/(X{\textasciicircum}\{N\}-1)\}
+   with convolution multiplication and all polynomials in the ring have integer coefficients and degree at most N-1:
+
+  
+    
+      
+        
+          
+            a
+          
+        
+        =
+        
+          a
+          
+            0
+          
+        
+        +
+        
+          a
+          
+            1
+          
+        
+        X
+        +
+        
+          a
+          
+            2
+          
+        
+        
+          X
+          
+            2
+          
+        
+        +
+        ⋯
+        +
+        
+          a
+          
+            N
+            −
+            2
+          
+        
+        
+          X
+          
+            N
+            −
+            2
+          
+        
+        +
+        
+          a
+          
+            N
+            −
+            1
+          
+        
+        
+          X
+          
+            N
+            −
+            1
+          
+        
+      
+    
+    \{{\textbackslash}displaystyle \{{\textbackslash}textbf \{a\}\}=a\_\{0\}+a\_\{1\}X+a\_\{2\}X{\textasciicircum}\{2\}+{\textbackslash}cdots +a\_\{N-2\}X{\textasciicircum}\{N-2\}+a\_\{N-1\}X{\textasciicircum}\{N-1\}\}
+  {NTRU} is actually a parameterised family of cryptosystems; each system is specified by three integer parameters (N, p, q) which represent the maximal degree 
+  
+    
+      
+         
+        N
+        −
+        1
+      
+    
+    \{{\textbackslash}displaystyle {\textbackslash} N-1\}
+   for all polynomials in the truncated ring R, a small modulus and a large modulus, respectively, where it is assumed that N is prime, q is always larger than p, and p and q are coprime; and four sets of polynomials 
+  
+    
+      
+         
+        
+          
+            
+              L
+            
+          
+          
+            f
+          
+        
+        ,
+        
+          
+            
+              L
+            
+          
+          
+            g
+          
+        
+        ,
+        
+          
+            
+              L
+            
+          
+          
+            m
+          
+        
+      
+    
+    \{{\textbackslash}displaystyle {\textbackslash} \{{\textbackslash}mathcal \{L\}\}\_\{f\},\{{\textbackslash}mathcal \{L\}\}\_\{g\},\{{\textbackslash}mathcal \{L\}\}\_\{m\}\}
+   and 
+  
+    
+      
+         
+        
+          
+            
+              L
+            
+          
+          
+            r
+          
+        
+      
+    
+    \{{\textbackslash}displaystyle {\textbackslash} \{{\textbackslash}mathcal \{L\}\}\_\{r\}\}
+   (a polynomial part of the private key, a polynomial for generation of the public key, the message and a blinding value, respectively), all of degree at most 
+  
+    
+      
+         
+        N
+        −
+        1
+      
+    
+    \{{\textbackslash}displaystyle {\textbackslash} N-1\}
+  .},
+	booktitle = {Wikipedia},
+	urldate = {2020-11-21},
+	date = {2020-11-18},
+	langid = {english},
+	note = {Page Version {ID}: 989287965},
+	file = {Snapshot:/home/leix/Zotero/storage/H9Z8FHY3/index.html:text/html}
+}

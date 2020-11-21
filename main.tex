@@ -7,7 +7,7 @@
 \addbibresource{biblio_albert.bib}
 
 \title{
-    GCS - Quantum Computing Report
+    GCS - Quantum Encryption Report
 }
 \author{
 Aleix Boné Ribó\\
@@ -43,6 +43,7 @@ Lastly, we’ll investigate what is the current state of quantum cryptography, h
 it is being applied at present and what the future in this field looks like.
 
 
+\pagebreak
 \section{Can current common cryptographic methods survive the quantum world}
 
 \subsection{Rivest–Shamir–Adleman (RSA)}
@@ -55,7 +56,7 @@ They proved unnecessary that both parties in a communication meet beforehand to
 agree on which methods to use for encoding and decoding the messages without
 jeopardizing their privacy. Only one year later, in 1977, Rivest, Shamir and
 Adlemen (RSA) published one of the first implementations of this idea through
-their RSA algorithm. Since then, it has become one of the most popular
+their RSA algorithm \cite{rivest_method_1978}. Since then, it has become one of the most popular
 cryptographic algorithms, used most notably in TLS and SSH.
 
 \subsubsection{How it works}
@@ -127,13 +128,34 @@ The correctness of the deciphering algorithm $D(C)$ can be proved by Fermat's Li
 
 \subsubsection{How Quantum Computing affects it}
 
-As mentioned before, RSA exploits the fact that while factoring large, semiprime
-integers is technically possible, with today’s computational power it would take
-an extremely long time, as the algorithms are sub-exponential. As a matter of
-fact, it would take around 300 trillion years to break a 2048 bit RSA encryption
-key. However, Peter Shor found in 1994 that using quantum computers semiprime
-numbers can be factored in polynomial time. Using Shor’s algorithm with 4099
-perfectly stable qubits, 2048-RSA would be broken in just 10 seconds.
+As mentioned before, RSA exploits the fact that while factoring large,
+semiprime integers is technically possible, with today’s computational
+power it would take an extremely long time, as the algorithms are
+sub-exponential. As a matter of fact, it would take around 300 trillion
+years to break a 2048 bit RSA encryption key 
+\cite{andreas_baumhof_breaking_2019}. However, Peter Shor found
+in 1994 that using quantum computers semiprime numbers can be factored
+in polynomial time. Using Shor’s algorithm with 4099 perfectly stable
+qubits, 2048-RSA would be broken in just 10 seconds. 
+
+Today we don’t have a quantum computer with that many qubits or with
+that quality of qubits for that matter. The largest quantum computer to
+date is Google’s Bristlecone with 72 qubits and a 0.6\% error rate. 
+Furthermore, the largest number that has been factored by a quantum 
+computer is 35, a 6 digit number, very far off 2048 bits.
+
+Nonetheless, last year two researchers published a paper in which they 
+explained how to factor a 2048 bit RSA key in 8 hours using 20 million 
+noisy qubits \cite{gidney_how_2019}. While 20 million qubits are many 
+more than what is 
+available today, for the first time a system that doesn’t use perfect 
+qubits has been devised. Although there isn’t an imminent threat to RSA 
+encryption, it isn’t a perfect algorithm and the supposition that very 
+large, semiprime numbers can’t be factored in practice will be false in 
+the coming decades. Thus, in a post-quantum world RSA will be 
+broken, however large the key becomes, and therefore will no longer be 
+secure.
+
 
 
 \pagebreak
@@ -299,10 +321,10 @@ key size effectively thwarts this kind of quantum attack.
 
 
 \pagebreak
-\section{Most important cryptographic methods in quantum world}
+\section{Most important cryptographic methods in a post-quantum world}
 
 \subsection{Error-correcting codes}
-\subsubsection{Necessity of error correcting codes in quantum world}
+\subsubsection{Necessity of error correcting codes in a post-quantum world}
 
 Error-correcting codes are a series of methods which aren't truly focused on
 cybersecurity but rather the stability or the ability of it for not having
@@ -328,7 +350,7 @@ exist and a year later, researchers Dorit Aharonov and Michael Ben-Or proved
 that these possible quantum error-correcting codes could theoretically push
 error rates to almost zero.
 
-\subsubsection{Error-Correcting codes in practice}
+\subsubsection{Error-correcting codes in practice}
 
 In practice, quantum error correcting codes are still being researched and
 developed, and there are multiple ways of ensuring the validity of data. The
@@ -337,9 +359,57 @@ correct, since its volatility leads to a difficulty in knowing the true value of
 a single qubit.
 
 \pagebreak
-\subsection{ Hash-functions }
+\subsection{Hash-based cryptography}
+\subsubsection{Necessity of hash-based cryptography in a post-quantum world}
 
-% TODO
+While the evident usage of cryptographic algorithms is the encryption of data, an important part of the
+digital world also relies on signatures, most of which are backed by cryptographic signing relying on
+algorithms such as RSA, which, as it has been previously have analyzed, can be easily broken in a scenario 
+where powerful-enough quantum are available.
+
+Thus, it is needed to ensure that the signatures made can still be trusted even if classical asymmetric
+algorithm are rendered obsolete, needing new algorithms to ensure this, and hash-based cryptography is a
+good start point, as most of the algorithms in this field are quantum-proof, since Shor's algorithm can not
+be applied to them. Grover's algorithm can still help find hash collisions, but, like in AES, can be easily
+compensated doubling the hash size.
+
+\subsubsection{Creating a signature from a hashing algorithm}
+
+To create a signature, there are well-known algorithms that allow to sign a piece of information using any
+proven hashing algorithm, like Lamport signatures and Winternitz signatures, but have a condition that
+impedes their use: both are designed for One-Time Signature, and trying to reuse the signature will
+void their security.
+
+However, almost all practical usages of a signature key require that the signature can be reused. This
+could be achieved by techniques like Merkle trees (or hash trees) which permit verifying that an element
+is contained in a previously defined set.
+
+Now, a brief explanation about Lamport signatures and Merkle trees is included to exemplify a possible
+implementation of hash-based signatures. In those, $H$ will be the chosen hash function, as these
+algorithms should be compatible with any function satisfying the hash properties.
+
+\paragraph{Lamport signatures}
+To sign a message $m$ of a length of 1 bit, a secret key with two components $(sk_0, sk_1)$ is generated.
+This secret will have as a corresponding public key $(pk_0, pk_1)$, where $pk_x = H(sk_x)$.
+Both are to be known by the recipient previous to the verification of the message. If $m = 0$, we release,
+as a signature, $s = k_0$;  if $m = 1$, we release $s = k_1$ instead.
+
+Thus, for a message $m$ with a
+signature $s$, the signature can be easily verified by checking that $H(s) = pk_m$. One important
+limitation of this algorithm is that to sign $N$ bits, $N$ keypairs have to be generated, and $N$
+signatures have to be verified.
+
+\paragraph{Merkle trees}
+To improve the previous situation, we can generate a Merkle tree. To generate a Merkle tree of $N$
+signing keys, we generate $N$ Lamport keypairs (other algorithms would work too), and build them into
+a binary tree\footnote{Other trees may be used, but a binary one is the most common implementation}.
+The non-leaf trees of the node will contain a hash of their children, recursively until the root node. Its
+hash will be the public key. For every message we want to sign, we will provide the Lamport public key, the
+signature, and the hashes of the nodes until the root.
+
+To verify such a signature, the receiver would have to check the Lamport signature, and verify
+that the public key was contained in the Merkle tree by checking each of the hashes provided as a
+proof.
 
 \pagebreak
 \subsection{ Lattice cryptographic systems }
@@ -467,9 +537,43 @@ are considerably larger (reaching Kbs in size). This makes it unsuitable for
 small integrated devices with low memory.
 
 \pagebreak
-\section{Use cases}
+\section{Current state of quantum cryptography}
 
-%TODO
+Quantum Key Distribution (QKD) has been proven to be an incorruptible system
+for distributing encryption keys in perfect secrecy.  It's security is 
+based on the foundations of quantum mechanics, as opposed to classical public
+key distribution, which relies on the computational struggles of current
+machines to solve the one-way trapdoor functions used. The first is 
+theoretically proven to be unbreakable, while the second will become redundant
+with the advent of capable quantum computers.
+Because of this, there are many research groups, public and private,
+working on implementations of QKD networks so that one day it can be used 
+at a large scale. These include DARPA, SwissQuantum, EU's SECOQC, Los Alamos 
+National Laboratory or China's QUESS.
+
+In February of this year, a new record for QKD over optical fiber was established at 509 kilometers and with a secure key-rate seven times higher
+than that of similar QKD systems \cite{qkd_509_km_2019}.
+
+In parallel, there are already companies offering comercial QKD systems:
+ID Quanitque (Switzerland), MagiQ Technologies (USA), QuintessenceLabs 
+(Australia), SeQureNet (France) and Toshiba (Japan). However, this systems are 
+complex and only used by large companies and government agencies.
+
+Nonetheless, QKD is only half of the cryptography equation, as it only helps
+with key distribution. We then have to consider the encryption techniques
+in themselves, which can be cracked as well. It is known, and has been
+theoretically proven that One-Time Pad (OTP) is unbreakable and therefore
+a combination with QKD would result in a perfect encryption system. There
+is in fact research being done on how to implement this type of system, for
+example at the previously mentioned Los Alamos National Laboratory (USA).
+In spite of all this promising expectations, OTP isn't very practical as it
+requires true randomness to function. Furthermore, it requires that the size
+of the key be at least as long as the message that it will encrypt.
+For these reasons, it is very common
+nowadays that QKD systems work with AES instead, as it provides all the security
+in key distribution while AES, as we saw in a previous section, can be made
+quantum resistant by simply doubling the key size.
+
 
 \pagebreak
 \section{Description of References}
@@ -520,15 +624,27 @@ small integrated devices with low memory.
 % VICTOR
 
 \explainedcite{national_institute_of_standards_andtechnology_announcing_1997}{
+    Publication of the AES requirements and call for algorithm.
 }
 
 \explainedcite{national_institute_of_standards_andtechnology_announcing_2001}{
+    AES contest resolution.
 }
 
 \explainedcite{qutech_academy_grovers_2018}{
+    Introduction to Grover's algorithm.
 }
 
 \explainedcite{wagner_is_2019}{
+    Brief explanaition on AES quantum resiliency.
+}
+
+\explainedcite{green_2018}{
+    Detailed explanation of Merkle Trees.
+}
+
+\explainedcite{minaud_2018}{
+    Lamport signature explanaition and Merkle Tree overview.
 }
 
 % ALBERT
@@ -548,6 +664,12 @@ small integrated devices with low memory.
 \explainedcite{kelly_rsa_2009}{
     History of RSA
 }
+
+\explainedcite{qkd_509_km_2019} {
+    
+}
+
+
 
 
 \pagebreak
