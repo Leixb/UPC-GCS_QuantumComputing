@@ -109,13 +109,13 @@ user has a public key $(e, n)$ and a private key $(d,n)$, which are used to encr
 and decrypt the message respectively. To encrypt:
 
 \begin{equation}
-    C \equiv E(M) \equiv M^e \quad mod \, n
+    C \equiv E(M) \equiv M^e \quad \mod n
 \end{equation}
 
 The receiver uses his private key $(d,n)$ to decipher the code this way:
 
 \begin{equation}
-    M \equiv D(C) \equiv C^d \quad mod \, n
+    M \equiv D(C) \equiv C^d \quad \mod n
 \end{equation}
 
 $n$, $e$ and $d$ are calculated the following way:
@@ -199,7 +199,7 @@ Given a curve with domain parameters $(p,b,a,G,n,h)$, we can implement an
 elliptic version of Diffie Hellman public key algorithm as follows:
 
 Our public key will be the point $Q = d * G$ obtained by multiplying $G$ by our
-private key $d$ (random number in the interval $[1, n-1]$) over the filed
+private key $d$ (random number in the interval $[1, n-1]$) over the field
 $\mathds{F}_p$.
 
 Consider now the scenario of Alice and Bob each one with their public and
@@ -349,7 +349,7 @@ considered viable without any way to prove that error-correcting codes could be
 viable too. In 1995, Peter Shor proved that quantum error-correcting codes could
 exist and a year later, researchers Dorit Aharonov and Michael Ben-Or proved
 that these possible quantum error-correcting codes could theoretically push
-error rates to almost zero.
+error rates to almost zero. \cite{wolchover_how_nodate}
 
 \subsubsection{Error-correcting codes in practice}
 
@@ -427,7 +427,7 @@ scheme for cryptographic systems.
 
 A Lattice is an infinite sequence of points in x dimensions that can be
 calculated by a set of points called vectors. These set of vectors, called a
-basis, if operated by a specific pattern, can form any point in the lattice.
+basis, if operated by a specific pattern, can form any point in the lattice.\cite{matthew_dozer_introduction_2017}\cite{wickr_what_2020}
 
 As an example, we provide a 2 dimensional plane, in this plane we position an
 origin point and define 2 new points defined by the vector from the origin. For
@@ -673,21 +673,23 @@ quantum resistant by simply doubling the key size.
 % JAVI
 
 \explainedcite{wolchover_how_nodate}{
-}
-
-\explainedcite{noauthor_novel_nodate}{
+    Origins of Error-Correcting Codes in quantum-world.
 }
 
 \explainedcite{matthew_dozer_introduction_2017}{
+    An easy explanation of how Lattice Based Cryptography works.
 }
 
 \explainedcite{wickr_what_2020}{
+    Complete explanation about Lattice Based Cryptography origins, how it works and its potential in quantum cryptography.
 }
 
 \explainedcite{noauthor_lattice-based_2020}{
+    Simple explanation about Lattice Base Cryptography.
 }
 
 \explainedcite{noauthor_ntruencrypt_2020}{
+    First and most-known working Lattice Based Cryptography implementation.
 }
 
 
